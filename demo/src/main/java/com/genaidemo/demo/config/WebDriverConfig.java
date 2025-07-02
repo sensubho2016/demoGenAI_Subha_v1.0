@@ -11,6 +11,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.safari.SafariOptions;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 
 import java.util.HashMap;
@@ -64,9 +66,15 @@ public class WebDriverConfig {
             edgeOptions.addArguments("--remote-allow-origins=*");
             driver = new EdgeDriver(edgeOptions);
             driver.manage().window().maximize();
+        } else if ("Safari".equalsIgnoreCase(environmentProperties.getBrowser())) {
+            System.setProperty("webdriver.safari.driver", "/usr/bin/safaridriver");
+            SafariOptions safariOptions = new SafariOptions();
+            //safariOptions.setCapability("safari:automaticInspection", true);
+            //safariOptions.setCapability("safari:automaticProfiling", true);
+            driver = new SafariDriver(safariOptions);
+            driver.manage().window().maximize();
         }
 
         return driver;
     }
 }
-

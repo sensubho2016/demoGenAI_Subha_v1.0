@@ -130,6 +130,7 @@ public class LoginPage extends GenericPage {
 
         } catch (Exception e) {
             e.printStackTrace();
+            throw new RuntimeException();
         }
 
     }

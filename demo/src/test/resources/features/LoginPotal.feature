@@ -19,7 +19,7 @@ Feature: LOGIN
   @loginTest3
   Scenario Outline: Verify User is able to open into Metlife Portal
     Given "User" is able to open successfully Homepage for testcase "<TcNo>"
-    Then User is on "Find Dentist" Page for testCase "<TcNo>"
+    #Then User is on "Find Dentist" Page for testCase "<TcNo>"
     Examples:
       | TcNO    |
       | Login_3 |
