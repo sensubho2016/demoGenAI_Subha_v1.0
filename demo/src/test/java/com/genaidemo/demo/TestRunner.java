@@ -16,7 +16,7 @@ import static org.junit.platform.engine.discovery.DiscoverySelectors.selectPacka
 @CucumberOptions(
 		features = "classpath:features",
 		glue = {"com.genaidemo.demo", "com.genaidemo.demo.hooks"},
-		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "com.genaidemo.demo.utility.CustomPdfReportPlugin"},
+		plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 		tags = "@loginTest3",
 		monochrome = true
 )

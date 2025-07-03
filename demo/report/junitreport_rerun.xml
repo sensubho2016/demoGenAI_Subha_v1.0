@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="6.917">
+    <testcase classname="LOGIN" name="Verify User is able to open into Metlife Portal" time="6.903">
+        <system-out><![CDATA[Given "User" is able to open successfully Homepage for testcase "<TcNo>"....passed
+Then User is on "Access" Page for testCase "<TcNo>".........................passed
+]]></system-out>
+    </testcase>
+</testsuite>

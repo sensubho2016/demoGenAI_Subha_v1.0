@@ -24,19 +24,25 @@ public class CucumberHooks {
     @After
     public void tearDown(Scenario scenario) {
         try {
-            if (scenario.isFailed()) {
-                log.info("Failed test:" + scenario.getName());
-                final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-                scenario.attach(screenshot, "image/png", scenario.getName());
-                this.driver.close();
-                this.driver.quit();
-            } else {
-                log.info("Passed test:" + scenario.getName());
-                this.driver.close();
-                this.driver.quit();
+            if (driver != null) {
+                try {
+                    driver.getTitle(); // Check if session is valid
+                    if (scenario.isFailed()) {
+                        log.info("Failed test:" + scenario.getName());
+                        final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                        scenario.attach(screenshot, "image/png", scenario.getName());
+                    } else {
+                        log.info("Passed test:" + scenario.getName());
+                    }
+                    driver.close();
+                    driver.quit();
+                } catch (org.openqa.selenium.NoSuchSessionException e) {
+                    log.warn("WebDriver session already closed, skipping quit.");
+                }
             }
-        }catch (Exception e){
-            log.error("error in Hooks :"+e);
+        } catch (Exception e) {
+            log.error("error in Hooks :" + e);
+            throw e;
         }
     }
 }

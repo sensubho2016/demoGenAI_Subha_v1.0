@@ -1,6 +1,7 @@
 package com.genaidemo.demo.step;
 
 import com.genaidemo.demo.annotation.LazyAutowired;
+import com.genaidemo.demo.generic.Constant;
 import com.genaidemo.demo.page.ContactUsPage;
 import com.genaidemo.demo.page.LoginPage;
 import com.genaidemo.demo.utility.MockTestData;
@@ -43,8 +44,13 @@ public class MyStepdefs {
 
         try {
             log.info(page + " is going to open for testCase " + testCase);
-            this.loginPage.goToPage(page, testCase);
+            //this.loginPage.goToPage(page, testCase);
+            Constant.count++;
             Thread.sleep(2000);
+            log.info("counrt value is: " + Constant.count);
+            if(Constant.count == 1) {
+                throw new RuntimeException();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException();

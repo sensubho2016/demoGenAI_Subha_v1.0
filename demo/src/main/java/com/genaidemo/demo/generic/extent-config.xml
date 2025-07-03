@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+    <configuration>
+        <theme>standard</theme>
+        <encoding>UTF-8</encoding>
+        <protocol>HTTPS</protocol>
+        <timelineEnabled>true</timelineEnabled>
+        <documentTitle>Automation Test Report</documentTitle>
+        <reportName>Demo Project Extent Report</reportName>
+        <timeStampFormat>MMM dd, yyyy HH:mm:ss</timeStampFormat>
+        <script>
+            <![CDATA[
+                $(document).ready(function() {
+
+                });
+            ]]>
+        </script>
+        <styles>
+            <![CDATA[
+
+            ]]>
+        </styles>
+    </configuration>
+</extentreports>
+
